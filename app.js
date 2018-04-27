@@ -2,9 +2,12 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 var logger = require('morgan');
-
-// var indexRouter = require('./routes/index');
+var mongoose = require('mongoose');
+var User = require('./Model/User');
+// var cors = require('cors');
+var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
 
 var app = express();
@@ -18,16 +21,31 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+// app.use(cors());
 //
-// app.use('/', indexRouter);
+app.use('/', indexRouter);
 // app.use('/users', usersRouter);
 
-app.get("/",function(req,res){
-  res.render("index")
+// app.get("/",function(req,res){
+//   res.render("index")
+// });
+//
+// app.get("/users",function(req,res){
+//   res.render("users")
+// });
+
+app.get("/c",function(req,res){
+  res.render('check',{message:"HI"});
 });
 
-app.get("/users",function(req,res){
-  res.render("users")
+app.post("/register", function(req,res){
+
+    console.log('POST data :', req.body);
+    res.sendStatus(200)
 });
 
 // catch 404 and forward to error handler
