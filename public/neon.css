@@ -1269,13 +1269,13 @@ pre {
     background-color: transparent;
     border: 0; }
   .form-control:focus {
-    color: #495057;
+    color: #021324;
     background-color: #fff;
     border-color: #f9eaa8;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(241, 205, 49, 0.25); }
   .form-control::placeholder {
-    color: #6c757d;
+    color: #1c2329;
     opacity: 1; }
   .form-control:disabled, .form-control[readonly] {
     background-color: #e9ecef;
