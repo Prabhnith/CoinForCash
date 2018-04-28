@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var WinnersSchema = new Schema({
+  name: { type: String, required: true },
   mobile: { type: Number, required: true },
   amount: { type: Number, required: true },
   email: { type: String, required: true },

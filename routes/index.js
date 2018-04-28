@@ -5,23 +5,16 @@ var Winners = require('../models/Winners');
 
 router.get('/', function(req, res, next) {
 
-  var Winner = Winners({
-    mobile: 9805830800,
-    amount: 300,
-    email: "prabhjot.nith@gmail.com"
-  });
-
-  Winner.save(function (err) {
-    console.log("Winner Adding.....");
-    if(err) throw err;
-    console.log("Winner Added");
-  });
-
-  User.find({}, function (err, users) {
+  Winners.find({}, function (err, users) {
     if (err) throw err;
 
     console.log(users);
-    res.render('index', {winTable:users});
+    let rulesTab = {
+      amount:[300,200,100,30,20,10],
+      won:[5000,2000,1000,500,200,100],
+      participate:[100,20,10,0,0,0]
+    }
+    res.render('index', {winTable:users, rules:rulesTab});
 
   });
 });

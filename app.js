@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 var User = require('./models/User').default;
-// var cors = require('cors');
+
 var indexRouter = require('./routes/index');
 var registerRouter = require('./routes/register');
 var successRouter = require('./routes/success');
@@ -25,23 +25,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
-// app.use(cors());
-//
+app.use(bodyParser.urlencoded({extended: false}));
+
 app.use('/', indexRouter);
 app.use('/register', registerRouter);
 app.use('/success', successRouter);
-
-// app.get("/",function(req,res){
-//   res.render("index")
-// });
-//
-// app.get("/users",function(req,res){
-//   res.render("users")
-// });
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
