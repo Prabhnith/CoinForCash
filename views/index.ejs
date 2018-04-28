@@ -21,7 +21,14 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script type="text/javascript" src="/javascripts/flipclock.min.js"></script>
-
+  <script type="text/javascript" src="/javascripts/custom.js"></script>
+  <script>
+    function check(){
+      console.log("in check...");
+      console.log(Response.status);     
+      // event.preventDefault();
+    }
+  </script>
 </head>
 
 <body>
@@ -67,7 +74,7 @@
         </div>
         <div class="col-lg-6 col-sm-12 text-center" >
           <h1 style="margin-bottom:40px;">Next BIG winner in </h1>
-            <div class="clock col-sm-12" style="margin-left:20%" ></div>
+            <div class="clock col-sm-12" ></div>
         </div>
       </div>
     </div>
@@ -115,28 +122,28 @@
           <img class="img-responsive img-fluid d-block" width="50%" style="margin:auto;" src="/images/paytm_upi.png">
         </div>
         <div class="my-3 col-md-4 col-sm-12 col-xs-12 d-lg-block ">
-          <form style="opacity: 0.8;" method="post" action="/register">
+          <form style="opacity: 0.8;" method="post" action="/register" target="_self" >
             <div class="form-group">
               <label>Name</label>
-              <input name="name" type="name" class="form-control" placeholder="Enter your name">
+              <input name="name" type="text" pattern="[a-z A-Z]+" class="form-control" placeholder="Enter your name" required>
               <small class="form-text text-muted">All the best..</small>
             </div>
             <div class="form-group">
               <label>Mobile Number (Payment made)</label>
-              <input name="mobile" type="number" class="form-control" placeholder="Enter your paytm number">
+              <input name="mobile" type="tel" pattern="^\d{10}$" class="form-control" placeholder="Enter your paytm number" required>
               <small class="form-text text-muted">We'll never share your contact with anyone else.</small>
             </div>
             <div class="form-group">
               <label>Contest entry price paid</label>
-              <input name="amount" type="number" class="form-control" placeholder="Enter contest amount paid">
+              <input name="amount" type="number" class="form-control" placeholder="Enter contest amount paid" required>
               <small class="form-text text-muted">Get big amount, put in big</small>
             </div>
             <div class="form-group">
               <label>Email address</label>
-              <input name="email" type="email" class="form-control" placeholder="Enter email">
+              <input name="email" type="email" class="form-control" placeholder="Enter email" required>
               <small class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
-            <button type="submit" class="btn text-center justify-content-center btn-primary text-capitalize">Submit</button>
+            <button type="submit" onclick="check();" class="btn text-center justify-content-center btn-primary text-capitalize">Submit</button>
           </form>
         </div>
         <div class="align-self-center text-md-left text-center col-lg-4 col-md-6">
@@ -170,24 +177,14 @@
                 <td>251</td>
                 <td>980-XXXX-800</td>
               </tr>
+              <% for(var i=0; i < winTable.length; i++) { %>
               <tr>
-                <td>2</td>
-                <td>Jacob Thornton</td>
-                <td>101</td>
-                <td>998-XXXX-582</td>
+                <td><%= i+1 %></td>
+                <td><%= winTable[i].name %></td>
+                <td><%= winTable[i].amount %></td>
+                <td><%= winTable[i].mobile %></td>
               </tr>
-              <tr>
-                <td>3</td>
-                <td>Larry</td>
-                <td>51</td>
-                <td>989-XXXX-555</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Cherry</td>
-                <td>11</td>
-                <td>989-XXXX-558</td>
-              </tr>
+              <% } %>
             </tbody>
           </table>
         </div>
@@ -304,23 +301,23 @@
   <script type="text/javascript">
     var clock;
     $(document).ready(function() {
-
-      clock = $('.clock').FlipClock(5940, {
-        clockFace: 'MinuteCounter',
+      let dateNow = new Date();
+      let countDown = ((23 - dateNow.getHours()) * 60 * 60) + ((60 - dateNow.getMinutes()) * 60) + (60 - dateNow.getSeconds());
+      clock = $('.clock').FlipClock(countDown, {
+        clockFace: 'DailyCounter',
         countdown: true,
         autoStart: true,
+        showDay:false,
         callbacks: {
           start: function() {
             $('.message').html('The clock has started!');
           }
         }
       });
-      console.log("clock");
+      //TODO: countdown 0, fetch winners
+      hideHours();
     });
   </script>
-  <pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 10px;right:10px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:180px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo&nbsp;&nbsp;
-    <img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16">
-  </pingendo>
 </body>
 
 </html>

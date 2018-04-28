@@ -1,14 +1,16 @@
 var express = require('express');
 var router = express.Router();
+var User = require('../models/User');
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+  
+  User.find({}, function (err, users) {
+    if (err) throw err;
 
-/* GET home page. */
-router.get('/check', function(req, res, next) {
-  res.render('check', { message: 'Express' });
+    console.log(users);
+    res.render('index', {winTable:users});
+
+  });
 });
 
 module.exports = router;

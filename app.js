@@ -5,10 +5,13 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
-var User = require('./Model/User');
+var User = require('./models/User').default;
 // var cors = require('cors');
 var indexRouter = require('./routes/index');
-// var usersRouter = require('./routes/users');
+var registerRouter = require('./routes/register');
+var successRouter = require('./routes/success');
+
+mongoose.connect('mongodb://localhost/coinforcashDB');
 
 var app = express();
 
@@ -28,7 +31,8 @@ app.use(bodyParser.urlencoded({
 // app.use(cors());
 //
 app.use('/', indexRouter);
-// app.use('/users', usersRouter);
+app.use('/register', registerRouter);
+app.use('/success', successRouter);
 
 // app.get("/",function(req,res){
 //   res.render("index")
@@ -38,15 +42,6 @@ app.use('/', indexRouter);
 //   res.render("users")
 // });
 
-app.get("/c",function(req,res){
-  res.render('check',{message:"HI"});
-});
-
-app.post("/register", function(req,res){
-
-    console.log('POST data :', req.body);
-    res.sendStatus(200)
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
