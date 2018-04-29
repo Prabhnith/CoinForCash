@@ -30,22 +30,17 @@ router.post('/', function (req, res, next) {
         newUser.save(function (err) {
           if (err) throw err;
           console.log('User created!');
-          const mailOptions = {
-            from: 'prabhjot.nith@gmail.com', // sender address
-            to: req.body.email, // list of receivers
-            subject: 'Coin For Cash - Thanks for participating', // Subject line
-            html: '<img src="https://raw.githubusercontent.com/Prabhnith/CoinForCash/master/public/images/bestWishes.jpg" alt="best Wishes for the event!!">' 
-          };
-
-          transporter.sendMail(mailOptions, function (err, info) {
-            if (err)
-              console.log(err)
-            else
-              console.log(info);
-          });
         });
       };
     });
+
+  const mailOptions = config.mailOptions;
+  mailOptions.to = req.body.email;
+
+  transporter.sendMail(mailOptions, function (err, info) {
+    if (err) console.log(err)
+    else     console.log(info);
+  });
 
   res.redirect("/success");
 });
