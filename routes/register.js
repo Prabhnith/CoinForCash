@@ -34,9 +34,7 @@ router.post('/', function (req, res, next) {
             from: 'prabhjot.nith@gmail.com', // sender address
             to: req.body.email, // list of receivers
             subject: 'Coin For Cash - Thanks for participating', // Subject line
-            html: '<img src="./images/bestWishes.jpg" alt="best Wishes for the event!!">'+ 
-            '<img src="../public/images/bestWishes.jpg" alt="best Wishes for the event!!">'+// plain text body
-            '<img src="./../public/images/bestWishes.jpg" alt="best Wishes for the event!!">'// plain text body
+            html: '<img src="https://raw.githubusercontent.com/Prabhnith/CoinForCash/master/public/images/bestWishes.jpg" alt="best Wishes for the event!!">' 
           };
 
           transporter.sendMail(mailOptions, function (err, info) {
