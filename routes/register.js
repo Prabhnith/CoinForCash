@@ -1,6 +1,16 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/User');
+var nodemailer = require('nodemailer');
+var config = require('./../config');
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: config.auth.user,
+    pass: config.auth.pass
+  }
+});
 
 router.post('/', function (req, res, next) {
 
@@ -20,6 +30,21 @@ router.post('/', function (req, res, next) {
         newUser.save(function (err) {
           if (err) throw err;
           console.log('User created!');
+          const mailOptions = {
+            from: 'prabhjot.nith@gmail.com', // sender address
+            to: req.body.email, // list of receivers
+            subject: 'Coin For Cash - Thanks for participating', // Subject line
+            html: '<img src="./images/bestWishes.jpg" alt="best Wishes for the event!!">'+ 
+            '<img src="../public/images/bestWishes.jpg" alt="best Wishes for the event!!">'+// plain text body
+            '<img src="./../public/images/bestWishes.jpg" alt="best Wishes for the event!!">'// plain text body
+          };
+
+          transporter.sendMail(mailOptions, function (err, info) {
+            if (err)
+              console.log(err)
+            else
+              console.log(info);
+          });
         });
       };
     });
