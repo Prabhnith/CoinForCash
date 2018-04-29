@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,9 +18,8 @@
   <link rel="stylesheet" href="/stylesheets/flipclock.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script type="text/javascript" src="/javascripts/flipclock.min.js"></script>
-  <script type="text/javascript" src="/javascripts/custom.js"></script>
-  </script>
+  <script src="/javascripts/flipclock.min.js"></script>
+  <script src="/javascripts/custom.js"></script>
 </head>
 
 <body>
@@ -31,21 +29,6 @@
       <a class="navbar-brand" href="#">
         <h2>Coin For Cash</h2>
       </a>
-      <!-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent"
-        aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item mx-2">
-            <a class="nav-link" href="#features">Features</a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link" href="#reviews">Reviews</a>
-          </li>
-        </ul>
-        <a class="btn navbar-btn mx-2 btn-primary shadowed" href="#download">Download</a>
-      </div> -->
     </div>
   </nav>
   <!-- Cover -->
@@ -58,9 +41,9 @@
             <br>
           </p>
         </div>
-        <div class="col-lg-6 col-sm-12 text-center">
-          <h1 style="margin-bottom:40px;">Next BIG winner in </h1>
-          <div class="clock col-sm-12"></div>
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 text-center ">
+          <h1 style="margin:0 0 60px 40px; width: auto;" class="text-lg-left">Next BIG winner in </h1>
+          <div class="clock" id="clock" style="zoom: 0.77;-moz-transform: scale(0.77);"></div>
         </div>
       </div>
     </div>
@@ -69,14 +52,14 @@
   <div class="py-5">
     <div class="container">
       <div class="row py-5">
-        <div class="col-md-5 order-2 order-md-1 animate-in-left">
-          <img class="img-fluid d-block my-3 mx-auto" src="assets/app/iphone_side_dark.png" width="200"> </div>
-        <div class="col-md-7 align-self-center order-1 order-md-2 my-3 text-md-left text-center">
+        <div class="col-md-12 align-self-center order-1 order-md-4 my-3 text-md-center text-center">
           <h2 class="display-4">Easy YET Powerful
             <br> Participate & WIN</h2>
-          <p class="my-2 ">
-            * Pay the amount to enter into the contest
-            <br> * Winner would be announced every 100 minutes
+          <p class="my-3">
+            * Pay the amount to enter into the contest<br>
+            * Winner would be announced every 12 hours<br>
+            * From each category, 10 winners will won amount price<br>
+            * Give more enteries to create your own FORTUNE..<br>
           </p>
           <a class="btn btn-outline-primary" href="#features">Enter Contest NOW!!</a>
         </div>
@@ -93,7 +76,7 @@
       </div>
 
       <div class="row">
-        <div class="align-self-center text-md-left col-lg-4 col-md-6">
+        <div class="align-self-center text-md-left col-lg-4 col-md-6 col-xs-12">
           <!-- <img class="img-fluid d-block mx-auto" src="https://cdn.iconscout.com/public/images/icon/free/png-512/paytm-logo-online-payment-brand-35543a485878b8bc-512x512.png" width="40%" height="5"> -->
           <!-- <img class="img-responsive img-fluid d-block" width="50%" style="margin:auto;" src="/images/paytm_upi.png"> -->
           <h2 class="pb-4">Rules :</h2>
@@ -159,14 +142,26 @@
         <div class="align-self-center text-md-left text-center col-lg-4 col-md-6">
           <!-- <img class="img-fluid d-block mx-auto p-2" src="https://crazydealonline.com/wp-content/uploads/2017/09/unnamed-1.png" width="40%"> -->
           <div style="margin-bottom: 10px;padding: 5px;">
-            <h4 style="text-align: center;">Pay Using Paytm</h2>
+            <h4 style="text-align: center;">Scan QR & Pay Using Paytm</h2>
+              <a href="/images/paytm_upi.png" download>
               <img class="img-responsive img-fluid d-block" width="50%" style="margin:auto;" src="/images/paytm_upi.png">
-          </div>
+              </a>
+            </div>
+            <h4 style="text-align: center;">Paytm / Tez : 9805830800</h4>
           <hr>
           <div style="margin-top: 10px;padding: 5px;">
-            <h4 style="text-align: center;">Pay Using Tez</h2>
-              <img class="img-responsive img-fluid d-block" width="50%" style="margin:auto;" src="/images/Tez_upi.png">
-          </div>
+            <h4 style="">Steps:</h2>
+              <p>
+                1. Click on QR code<br>
+                2. open image with Paytm App <br>
+                3. Pay entry amount <br>
+                4. Write message #coinforcash (Optional)<br>
+                5. You are good to go<br>
+              </p>
+              <!-- <a href="/images/Tez_upi.png" download> -->
+              <!-- <img class="img-responsive img-fluid d-block" width="50%" style="margin:auto;" src="/images/Tez_upi.png"> -->
+                <!-- </a> -->
+            </div>
         </div>
       </div>
     </div>
@@ -229,43 +224,7 @@
 
     </div>
   </div>
-  <!-- Features -->
-  <!-- Carousel reviews -->
-  <!-- <div class="pb-5 section text-center" id="reviews">
-    <div class="container">
-      <hr>
-      <div class="row pt-5">
-        <div class="col-12">
-          <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="5000">
-            <div class="carousel-inner" role="listbox">
-              <div class="carousel-item active">
-                <img src="assets/app/reviews_logo_1_dark.png" class="img-block mx-auto my-3 d-block" width="250" data-holder-rendered="true">
-                <div class="blockquote ">
-                  <p class="m-0">I can barely imagine my life without Pingendo</p>
-                  <div class="blockquote-footer">Alex Denver, Tech reviews</div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="assets/app/reviews_logo_2_dark.png" class="img-fluid my-3 mx-auto d-block" data-holder-rendered="true">
-                <div class="blockquote ">
-                  <p class="m-0">Pingendo sets a new standard for apps.</p>
-                  <div class="blockquote-footer">Sarah Krichko, APPetizer</div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="assets/app/reviews_logo_3_dark.png" class="img-fluid my-3 mx-auto d-block" data-holder-rendered="true">
-                <div class="blockquote ">
-                  <p class="m-0">Amazing, unique, essential and priceless</p>
-                  <div class="blockquote-footer">Monica Lay, News apps</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!-- Call to action -->
+    <!-- Call to action -->
   <div class="py-5 bg-primary" id="download">
     <div class="container">
       <div class="row">
@@ -282,10 +241,6 @@
             <div class="col-6 col-lg-4">
               <a href="#">
                 <img class="center-block img-fluid d-block shadowed" src="assets/app/download_android.png"> </a>
-            </div>
-            <div class="col-6 col-lg-4">
-              <a href="#">
-                <img class="center-block img-fluid d-block shadowed" src="assets/app/download_ios.png"> </a>
             </div>
           </div>
         </div>
@@ -351,14 +306,9 @@
           }
         }
       });
-
       hideHours();
-
-      if (countDown < 60) {
-        fetchWinners();
-      }
+      if (countDown < 60) {fetchWinners();      }
     });
   </script>
 </body>
-
 </html>
