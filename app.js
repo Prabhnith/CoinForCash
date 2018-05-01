@@ -5,6 +5,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+var helmet = require('helmet');
+var compression = require('compression');
+var minifyHTML = require('express-minify-html');;
 var User = require('./models/User').default;
 
 var indexRouter = require('./routes/index');
@@ -19,6 +22,20 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(minifyHTML({
+  override: true,
+  exception_url: false,
+  htmlMinifier: {
+    removeComments: true,
+    collapseWhitespace: true,
+    collapseBooleanAttributes: true,
+    removeAttributeQuotes: true,
+    removeEmptyAttributes: true,
+    minifyJS: true
+  }
+}));
+app.use(helmet());
+app.use(compression());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
