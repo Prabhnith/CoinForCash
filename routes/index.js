@@ -6,7 +6,8 @@ var Viewers = require('../models/Viewers');
 
 router.get('/', function(req, res, next) {
 
-  Viewers.findOneAndUpdate({ _id: "5ae84cf4af4d85182485126f" },
+  // Viewers.findOneAndUpdate({ _id: "5ae84cf4af4d85182485126f" },    //local
+  Viewers.findOneAndUpdate({ _id: "5ae87d2a09bef532ecb547a5" },       //mLab
     { $inc: { count: 1 } }, { new: true }, function (err, doc) {
       if(err) throw err;
       console.log(doc);

@@ -8,13 +8,19 @@ var mongoose = require('mongoose');
 var helmet = require('helmet');
 var compression = require('compression');
 var minifyHTML = require('express-minify-html');;
-var User = require('./models/User').default;
 
 var indexRouter = require('./routes/index');
 var registerRouter = require('./routes/register');
 var successRouter = require('./routes/success');
 
-mongoose.connect('mongodb://localhost/coinforcashDB');
+var dummyDB = require('./dummyDB');
+var config = require('./config');
+
+// mongoose.connect('mongodb://localhost/coinforcashDB');
+mongoose.connect('mongodb://ds163689.mlab.com:63689/coin4cash', 
+        { user: config.mLab.user, pass:config.mLab.pass});
+
+// dummyDB.populateData();
 
 var app = express();
 
@@ -34,6 +40,7 @@ app.use(minifyHTML({
     minifyJS: true
   }
 }));
+
 app.use(helmet());
 app.use(compression());
 app.use(logger('dev'));

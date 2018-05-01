@@ -5,6 +5,11 @@ var config = {
         pass: process.env.GMAIL_PASS
     },
 
+    mLab: {
+        user: process.env.MLAB_ID,
+        pass: process.env.MLAB_PASS,
+    },
+
     mailOptions : {
         from: 'prabhjot.nith@gmail.com', // sender address
         to: "", // list of receivers
