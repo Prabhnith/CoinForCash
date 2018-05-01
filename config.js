@@ -1,13 +1,17 @@
 var config = {
 
     auth: {
-        user: process.env.GMAIL_ID,
-        pass: process.env.GMAIL_PASS
+        // user: process.env.GMAIL_ID,
+        // pass: process.env.GMAIL_PASS
+        user: 'prabhjot.nith@gmail.com',
+        pass: 'J@Ipr@bh7001'
     },
 
     mLab: {
-        user: process.env.MLAB_ID,
-        pass: process.env.MLAB_PASS,
+        // user: process.env.MLAB_ID,
+        // pass: process.env.MLAB_PASS,
+        user: 'prabhnith',
+        pass: 'J@Ipr@bh563'
     },
 
     mailOptions : {

@@ -7,7 +7,7 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 var helmet = require('helmet');
 var compression = require('compression');
-var minifyHTML = require('express-minify-html');;
+var minifyHTML = require('express-minify-html');
 
 var indexRouter = require('./routes/index');
 var registerRouter = require('./routes/register');
@@ -37,7 +37,8 @@ app.use(minifyHTML({
     collapseBooleanAttributes: true,
     removeAttributeQuotes: true,
     removeEmptyAttributes: true,
-    minifyJS: true
+    minifyJS: true,
+    minifyCSS: true
   }
 }));
 
